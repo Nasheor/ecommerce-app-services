@@ -19,6 +19,7 @@ type User struct {
 	P string `json:"p"`
 }
 
+// Business login for out /login RPC
 func (loginService) validateCredentials(uname string, pword string, admin bool) (bool) {
 	logger := log.NewLogfmtLogger(os.Stderr)
 	logger.Log(uname);

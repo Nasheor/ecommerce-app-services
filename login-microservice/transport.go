@@ -7,6 +7,10 @@ import (
 
 	"github.com/go-kit/kit/endpoint"
 )
+/*
+	In this middleware layer I define the different types of communications and structure of the 
+	messages that can be made to and from the RPC
+*/
 
 func makeLoginEndpoint(ls LoginService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
