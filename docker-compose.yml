@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: 'mysql:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'drowssap'
+      MYSQL_DATABASE: 'shop'
+  login:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./login-microservice
+    volumes:
+      - ./login-microservice:/app
+    ports: 
+      - "8080:8080"
+  products:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./products-microservice
+    volumes:
+      - ./products-microservice:/app
+    ports:
+      - "8081:8081"
+
+

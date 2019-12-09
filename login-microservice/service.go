@@ -39,7 +39,6 @@ func (loginService) validateCredentials(uname string, pword string, admin bool) 
 
 	var u User
 
-
 	// Checks the type of user that is customer or admin and queries the appropriate table
 	if admin {
 		err := db.QueryRow("SELECT name, password FROM admin where name=?", uname).Scan(&u.U, &u.P)
@@ -54,6 +53,8 @@ func (loginService) validateCredentials(uname string, pword string, admin bool) 
 	}
 	if u.P == pword && u.U == uname  {
 		result = true
+
+		
 	}
 	return result
 
