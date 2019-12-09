@@ -64,7 +64,6 @@ func (productsService) getProducts() ([]*Product) {
 // Business logic for /delete RPC
 func (deleteService) deleteProduct(id string, quantity int64, admin bool) (bool) {
 	logger := log.NewLogfmtLogger(os.Stderr)
-	fmt.Print(id, quantity, admin)
 	connectionString := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true&multiStatements=true", user, password, serverName, dbName)
 	db ,_ := sql.Open("mysql", connectionString)
 
@@ -75,7 +74,6 @@ func (deleteService) deleteProduct(id string, quantity int64, admin bool) (bool)
 	
 		if err != nil {
 			logger.Log(err)
-			fmt.Print(err)
 			return !success
 		}
 	} else {

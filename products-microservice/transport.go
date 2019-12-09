@@ -11,7 +11,7 @@ import (
 type getProductsRequest struct {}
 
 type getProductsResponse struct {
-	I string `json:productid`
+	I string `json:"productid"`
 	N string `json:"name"`
 	Q int64 `json: "quantity"`
 	P float64 `json: "price"`
