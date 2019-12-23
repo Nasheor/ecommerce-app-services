@@ -13,8 +13,8 @@ type getProductsRequest struct {}
 type getProductsResponse struct {
 	I string `json:"productid"`
 	N string `json:"name"`
-	Q int64 `json: "quantity"`
-	P float64 `json: "price"`
+	QUANTITY int64 `json: "quantity"`
+	PRICE float64 `json: "price"`
 }
 
 type deleteProductsRequest struct {
@@ -36,8 +36,8 @@ func makeProductsEndpoint(ps ProductsService) endpoint.Endpoint {
 			tmp_holder := new(getProductsResponse)
 			tmp_holder.I = product.productID
 			tmp_holder.N = product.name
-			tmp_holder.P = product.price
-			tmp_holder.Q = product.quantity
+			tmp_holder.PRICE = product.price
+			tmp_holder.QUANTITY = product.quantity
 			productsResponse = append(productsResponse, tmp_holder)
 		}
 		return productsResponse, nil

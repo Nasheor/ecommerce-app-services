@@ -3,7 +3,7 @@ package main
 import(
 	"net/http"
 	"os"
-	"log"
+	Log "log"
 	"github.com/go-kit/kit/log"
 	"github.com/rs/cors"
 	httptransport "github.com/go-kit/kit/transport/http"
@@ -33,7 +33,7 @@ func main() {
 	))
 
 	handler := cors.Default().Handler(mux)
-	log.Println("Products Microservice Running")
+	Log.Println("Products Microservice Running")
 	logger.Log("msg", "HTTP", "addr", ":8081")
 	logger.Log("err", http.ListenAndServe(":8081", handler))
 }
